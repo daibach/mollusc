@@ -35,8 +35,8 @@ spl_autoload_register(function ($class) {
 require_once('util.php');
 
 require_once('conf.php');
-if (file_exists(CONF_DIR . '/' . gethostname() . '.conf.php')) {
-    require_once(gethostname() . '.conf.php');
+if (file_exists(CONF_DIR . '/local.conf.php')) {
+    require_once('local.conf.php');
 }
 
 if (!defined('LOG_DIR')) {
