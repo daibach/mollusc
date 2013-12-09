@@ -10,7 +10,9 @@
             out(SITE_NAME);
         endif;
         ?></title>
-        <link rel="stylesheet" href="/main.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="http://www.dafyddvaughan.co.uk/css/bootstrap/bootstrap.1.4.0.min.css">
+        <link rel="stylesheet" href="http://www.dafyddvaughan.co.uk/css/core3.css">
+        <link rel="stylesheet" href="/css/core.css">
         <?php if (isset($shorter)): ?>
         <link rev="canonical" href="<?php out($shorter); ?>">
         <?php endif; ?>
@@ -19,5 +21,23 @@
         <?php endif; ?>
     </head>
     <body>
-        <h1><a href="/"><?php out(SITE_NAME); ?></a></h1>
-        <div id="content">
+      <header>
+        <div class="topbar" data-scrollspy="scrollspy" >
+          <div class="topbar-inner">
+            <div class="container">
+              <nav>
+                <ul class="nav">
+                  <li><a href="http://www.dafyddvaughan.co.uk" title="return to the home page">Dafydd Vaughan</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="page">
+        <div class="container">
+          <header>
+            <h1><span><a href="/"><?php out(SITE_NAME); ?></a></span></h1>
+          </header>
+          <div id="content">

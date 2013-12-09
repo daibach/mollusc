@@ -45,6 +45,7 @@ if ($this->events) {
         <?php echo $table; ?>
             </tbody>
         </table>
+        </div>
     <?php }
     foreach ($this->events as $event):
         if (!$lastExit && (!$lastDate || $lastDate->format('M Y') != $event->creation_date->format('M Y'))):
@@ -56,7 +57,8 @@ if ($this->events) {
             $daysBalance = array();
             $lowDaysBalance = array();
             ?>
-            <h3 class="month"><?php out($event->creation_date->format('M Y')); ?></h3>
+            <div class="monthinfo">
+            <h2 class="month" id="<?php out(strtolower($event->creation_date->format('MY'))); ?>"><?php out($event->creation_date->format('M Y')); ?></h2>
             <?php ob_start(); ?>
             <table class="history">
                 <thead>
@@ -64,6 +66,7 @@ if ($this->events) {
                         <th class="date">Date</th>
                         <!-- <th class="action">Event</th> -->
                         <th class="location">Location</th>
+                        <th class="note">Note</th>
                         <th class="fare">Fare</th>
                         <th class="balance">Balance</th>
                     </tr>
@@ -157,6 +160,7 @@ if ($this->events) {
                         ⟼
                         <?php out($lastExit->location); ?>
                     </td>
+                    <td><?php if($event->note) : ?><a class="infonote" title="<?php out($event->note); ?>">i</a><?php endif; ?></td>
                     <td class="fare"><?php if ($fare): ?><?php out($fareSign); ?>£<?php out(sprintf('%.2f', $fare/100)); ?><?php endif; ?></td>
                     <td class="balance"><?php if ($balance): ?><?php out($balanceSign); ?>£<?php out(sprintf('%.2f', $balance/100)); ?><?php endif; ?></td>
                 </tr>
@@ -189,6 +193,7 @@ if ($this->events) {
                         <?php endif; ?>
                         <?php out($event->location); ?>
                     </td>
+                    <td><?php if($event->note) : ?><span class="label notice" title="<?php out($event->note); ?>">note</span><?php endif; ?></td>
                     <td class="fare"><?php if ($fare): ?><?php out($fareSign); ?>£<?php out(sprintf('%.2f', $fare/100)); ?><?php endif; ?></td>
                     <td class="balance"><?php if ($balance): ?><?php out($balanceSign); ?>£<?php out(sprintf('%.2f', $balance/100)); ?><?php endif; ?></td>
                 </tr>
