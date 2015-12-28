@@ -23,7 +23,7 @@ define('HOST_NAME', 'your.own.hostname');
 // You might need to change the path to your socket or comment this out and
 // use the host and port settings depending on your mysql setup
 //define('MYSQL_SOCKET', '/tmp/mysql.sock');
-define('MYSQL_HOST', 'localhost');
+//define('MYSQL_HOST', 'localhost');
 define('MYSQL_PORT', '3306');
 
 //define('OYSTER_USERNAME', 'oyster_username');
